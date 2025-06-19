@@ -1,8 +1,8 @@
 # Varshaa--6396674-Cognizant-FSE
 
-🚀 **Personal repository for Cognizant FSE - Digital Nurture 4.0 Deep Skilling Program**
+ **Personal repository for Cognizant FSE - Digital Nurture 4.0 Deep Skilling Program**
 
-This repository contains all my learning resources, hands-on code, and project work related to the Full Stack Engineer (Java) curriculum provided by Cognizant.
+This repository contains all my hands-on code, and project work related to the Full Stack Engineer (Java) curriculum provided by Cognizant.
 
 ---
 
@@ -41,13 +41,12 @@ This repository tracks my technical growth through:
 - 📌 Hands-on assignments
 - 📁 Weekly module submissions
 - 🧪 Unit testing and code quality practices
-- 💡 Final capstone project (if applicable)
 
 ---
 
 ## 📁 Directory Structure (Suggested)
 
 ## 🔗 Connect with Me
-- ✉️ Email: varshaayourmail@example.com
+- ✉️ Email: [varshaaselva@gmail.com](#)
 - 🌐 LinkedIn: [linkedin.com/in/varshaaselvanarayanan](#)
-- 💻 GitHub: [github.com/yourgithubusername](#)
+- 💻 GitHub: [github.com/varshaa-selva](#)
