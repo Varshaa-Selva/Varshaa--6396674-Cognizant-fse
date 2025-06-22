@@ -4,7 +4,6 @@
 
 - SOLID = 5 design principles for writing clean, maintainable, scalable OOP code.
 - Design Patterns = Reusable solutions to common software design problems.
-- GoF = Gang of Four (authors of "Design Patterns" book).
 
 ---
 
