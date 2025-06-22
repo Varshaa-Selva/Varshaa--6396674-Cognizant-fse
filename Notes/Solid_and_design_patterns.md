@@ -1,55 +1,148 @@
-# SOLID Principles & Design Patterns (Java)
-
-## What & Why?
-
-- SOLID = 5 design principles for writing clean, maintainable, scalable OOP code.
-- Design Patterns = Reusable solutions to common software design problems.
+# Week 1 – SOLID Principles and Design Patterns
 
 ---
 
-## SOLID Principles
+## 1. What are Design Patterns?
 
-### Single Responsibility Principle (SRP)
-- A class should have only one reason to change.
-- ➤ One class = One job.
+Design patterns are reusable solutions to common problems in software design. They represent best practices used by experienced developers to solve recurring problems.
 
-### Open/Closed Principle (OCP)
-- Classes should be open for extension, but closed for modification.
-- ➤ Use inheritance or interfaces to add behavior.
-
-### Liskov Substitution Principle (LSP)
-- Child classes should be substitutable for parent classes without breaking functionality.
-
-### Interface Segregation Principle (ISP)
-- Don’t force classes to implement methods they don’t use.
-- ➤ Prefer small, role-specific interfaces.
-
-### Dependency Inversion Principle (DIP)
-- High-level modules should depend on abstractions, not concrete implementations.
+**Why use design patterns:**
+- Improve code maintainability and reusability
+- Simplify debugging and testing
+- Promote clean architecture and modular design
+- Provide common terminology for team discussions
 
 ---
 
-## Common Design Patterns
+## 2. SOLID Principles of Object-Oriented Programming
 
-### Creational Patterns
-- **Singleton** – One instance, global access.
-- **Factory Method** – Create objects without exposing the instantiation logic.
-- **Builder** – Construct complex objects step by step.
+SOLID is an acronym for five design principles intended to improve software structure and maintainability.
 
-### Structural Patterns
-- **Adapter** – Make incompatible interfaces work together.
-- **Decorator** – Add behavior to objects dynamically.
-- **Proxy** – Control access to another object.
+### 2.1 Single Responsibility Principle (SRP)
 
-### Behavioral Patterns
-- **Observer** – One-to-many dependency updates automatically.
-- **Strategy** – Define interchangeable algorithms.
-- **Command** – Encapsulate requests as objects.
+A class should have only one reason to change. It should do only one job.
+
+**Example:**  
+Separate `Book` and `BookPrinter` classes instead of handling both logic and printing in one.
 
 ---
 
-## Architectural Patterns
+### 2.2 Open-Closed Principle (OCP)
 
-- **MVC (Model-View-Controller)** – Separate business logic, UI, and control flow.
-- **Dependency Injection** – Inject dependencies (like services) via constructor/setters.
+Software entities should be open for extension but closed for modification.
 
+**Key idea:**  
+Extend functionality using inheritance or interfaces, without modifying existing code.
+
+---
+
+### 2.3 Liskov Substitution Principle (LSP)
+
+Subtypes should be substitutable for their base types without altering the correctness of the program.
+
+**Key point:**  
+Child classes should not throw unexpected exceptions or break functionality when used in place of the parent class.
+
+---
+
+### 2.4 Interface Segregation Principle (ISP)
+
+Clients should not be forced to implement interfaces they do not use.
+
+**Solution:**  
+Break large interfaces into smaller, more specific ones.
+
+---
+
+### 2.5 Dependency Inversion Principle (DIP)
+
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+**How to implement:**
+- Use interfaces
+- Use dependency injection (constructor, setter, or framework)
+
+---
+
+## 3. Commonly Used Design Patterns (GoF – Gang of Four)
+
+#### Singleton Pattern
+
+- Ensures only one instance of a class exists.
+- Used for logging, configuration, caching.
+
+#### Factory Method Pattern
+
+- Defines an interface for creating an object but lets subclasses decide which class to instantiate.
+- Supports open/closed principle.
+
+#### Builder Pattern
+
+- Builds complex objects step-by-step.
+- Allows different representations of an object using the same construction logic.
+
+---
+
+### 3.2 Structural Patterns
+
+#### Adapter Pattern
+
+- Converts the interface of a class into another interface clients expect.
+- Helps incompatible interfaces work together.
+
+#### Decorator Pattern
+
+- Adds new behavior to an object dynamically without altering its structure.
+- Alternative to subclassing.
+
+#### Proxy Pattern
+
+- Provides a placeholder for another object to control access, reduce cost, or add logging/security.
+
+---
+
+### 3.3 Behavioral Patterns
+
+#### Observer Pattern
+
+- Defines a one-to-many dependency.
+- When the subject changes, all observers are notified automatically.
+
+**Example**:  
+UI event listeners, stock price updates.
+
+#### Strategy Pattern
+
+- Defines a family of interchangeable algorithms.
+- Enables selecting algorithms at runtime.
+
+**Example**:  
+Different payment strategies: CreditCard, UPI, PayPal.
+
+#### Command Pattern
+
+- Encapsulates a request as an object.
+- Allows parameterizing actions, queuing them, and implementing undo/redo.
+
+**Example**:  
+Remote control commands, menu actions.
+
+---
+
+## 4. Architectural Patterns
+
+### Model-View-Controller (MVC)
+
+- **Model**: Handles data and business logic.
+- **View**: Displays data to the user.
+- **Controller**: Accepts user input, updates model and view.
+
+Encourages separation of concerns and easier testing.
+
+### Dependency Injection (DI)
+
+- A technique where an object receives other objects it depends on.
+- Reduces tight coupling and makes code more testable.
+
+**Example**:  
+Injecting service classes into controllers via constructor or annotations.
