@@ -1,25 +1,45 @@
--- UpdateEmployeeBonus.sql
+--Transfer money between two accounts
 SET SERVEROUTPUT ON;
 
-CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
-    p_dept_id IN NUMBER,
-    p_bonus_pct IN NUMBER
+CREATE OR REPLACE PROCEDURE TransferFunds (
+    p_from_account IN NUMBER,
+    p_to_account IN NUMBER,
+    p_amount IN NUMBER
 ) IS
+    v_balance NUMBER;
 BEGIN
-    FOR emp IN (SELECT emp_id, salary FROM employees WHERE department_id = p_dept_id) LOOP
-        UPDATE employees
-        SET salary = salary + (salary * p_bonus_pct / 100)
-        WHERE emp_id = emp.emp_id;
+    -- Check balance of source account
+    SELECT balance INTO v_balance FROM accounts WHERE account_id = p_from_account;
 
-        DBMS_OUTPUT.PUT_LINE('Bonus added to Emp ID ' || emp.emp_id);
-    END LOOP;
+    IF v_balance < p_amount THEN
+        DBMS_OUTPUT.PUT_LINE('Insufficient funds in Account ID ' || p_from_account);
+    ELSE
+        -- Deduct from source
+        UPDATE accounts
+        SET balance = balance - p_amount
+        WHERE account_id = p_from_account;
 
-    COMMIT;
+        -- Add to destination
+        UPDATE accounts
+        SET balance = balance + p_amount
+        WHERE account_id = p_to_account;
+
+        DBMS_OUTPUT.PUT_LINE('Transferred ' || p_amount ||
+                             ' from Account ID ' || p_from_account ||
+                             ' to Account ID ' || p_to_account);
+
+        COMMIT;
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('One of the accounts does not exist.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
 /
 
 -- Example execution
 BEGIN
-    UpdateEmployeeBonus(10, 10); -- 10% bonus for dept 10
+    TransferFunds(101, 102, 1000);
 END;
 /

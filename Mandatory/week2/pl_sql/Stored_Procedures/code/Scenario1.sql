@@ -1,4 +1,4 @@
--- ProcessMonthlyInterest.sql
+--Apply 1% interest to all savings accounts
 SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS

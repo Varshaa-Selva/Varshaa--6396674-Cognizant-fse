@@ -1,4 +1,4 @@
--- UpdateEmployeeBonus.sql
+--Add bonus to employees in a given department
 SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
