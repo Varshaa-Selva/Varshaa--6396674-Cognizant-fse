@@ -24,3 +24,7 @@ release.properties
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Optional: Keep screenshots
+output/*
+!output/*.png
