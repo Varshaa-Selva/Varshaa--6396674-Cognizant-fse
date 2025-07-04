@@ -24,3 +24,6 @@ release.properties
 # OS specific
 .DS_Store
 Thumbs.db
+
+output/*
+!output/*.png
